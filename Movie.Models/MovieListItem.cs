@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Models
+namespace ElevenMovie.Models
 {
     public class MovieListItem
     {
@@ -13,6 +13,9 @@ namespace Movie.Models
         public string Title { get; set; }
         public string Genre { get; set; }
         [Display(Name = "Created")]
+
+        public bool IsStarred { get; set; }
+
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Movie.Startup))]
-namespace Movie
+[assembly: OwinStartupAttribute(typeof(ElevenMovie.Startup))]
+namespace ElevenMovie
 {
     public partial class Startup
     {

@@ -5,10 +5,10 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Movie.Models;
-using Movie.Data;
+using ElevenMovie.Models;
+using ElevenMovie.Data;
 
-namespace Movie
+namespace ElevenMovie
 {
     public partial class Startup
     {

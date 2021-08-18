@@ -8,10 +8,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Movie.Data;
-using Movie.Models;
+using ElevenMovie.Data;
+using ElevenMovie.Models;
 
-namespace Movie.Controllers
+namespace ElevenMovie.Controllers
 {
     [Authorize]
     public class AccountController : Controller

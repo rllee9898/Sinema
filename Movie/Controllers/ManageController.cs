@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Movie.Models;
+using ElevenMovie.Models;
 
-namespace Movie.Controllers
+namespace ElevenMovie.Controllers
 {
     [Authorize]
     public class ManageController : Controller

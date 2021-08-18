@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Data
+namespace ElevenMovie.Data
 {
     public enum MaturityRating
     {

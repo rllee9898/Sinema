@@ -1,11 +1,11 @@
-﻿using Movie.Models;
+﻿using ElevenMovie.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Movie.Controllers
+namespace ElevenMovie.Controllers
 {
     //This annotation makes it so that the views are accessible only to logged in users
     [Authorize]

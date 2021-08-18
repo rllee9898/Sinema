@@ -10,10 +10,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using Movie.Data;
-using Movie.Models;
+using ElevenMovie.Data;
+using ElevenMovie.Models;
 
-namespace Movie
+namespace ElevenMovie
 {
     public class EmailService : IIdentityMessageService
     {
