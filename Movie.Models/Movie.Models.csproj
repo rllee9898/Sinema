@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="MovieCreate.cs" />
     <Compile Include="MovieDetail.cs" />
+    <Compile Include="MovieEdit.cs" />
     <Compile Include="MovieListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

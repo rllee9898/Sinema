@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Movie.Models
 {
-    public class MovieDetail
+    public class MovieEdit
     {
         public enum MaturityRating
         {
@@ -23,16 +24,14 @@ namespace Movie.Models
         [Display(Name = "Movie ID")]
         public int MovieId { get; set; }
 
-        [Display(Name = "Title")]
+        [Required]
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
+        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
 
-        [Display(Name = "Description")]
+        [MaxLength(8000)]
         public string Description { get; set; }
 
-        [Display(Name = "Genre")]
-        public string Genre { get; set; }
-
-        [Display(Name = "Family Friendly")]
         public bool IsFamilyFriendly
         {
             get
@@ -52,15 +51,13 @@ namespace Movie.Models
                 }
             }
         }
-
-        [Display(Name = "Type Of Maturity Rating")]
         public MaturityRating TypeOfMaturityRating { get; set; }
 
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        [Required]
+        public string Genre { get; set; }
+        //Put Foriegn key here in base class
 
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        [DefaultValue(false)]
         public bool IsStarred { get; set; }
     }
 }

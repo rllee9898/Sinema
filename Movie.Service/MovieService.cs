@@ -56,6 +56,7 @@ namespace ElevenMovie.Service
                                 {
                                     MovieId = e.MovieId,
                                     Title = e.Title,
+                                    Description = e.Description,
                                     Genre = e.Genre,
                                     IsFamilyFriendly = e.IsFamilyFriendly,
                                     CreatedUtc = e.CreatedUtc
@@ -77,6 +78,7 @@ namespace ElevenMovie.Service
                     {
                         MovieId = enity.MovieId,
                         Title = enity.Title,
+                        Description = enity.Description,
                         Genre = enity.Genre,
                         CreatedUtc = enity.CreatedUtc,
                         ModifiedUtc = enity.ModifiedUtc
@@ -84,8 +86,45 @@ namespace ElevenMovie.Service
             }
         }
 
+        //Put or Update
+
+        //Update Method
+        public bool UpdateNote(MovieEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Movies
+                        .Single(e => e.MovieId == model.MovieId && e.OwnerId == _userId);
+
+                entity.Title = model.Title;
+                entity.Description = model.Description;
+                entity.Genre = model.Genre;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
 
+                return ctx.SaveChanges() == 1;
 
+            }
+        }
+
+        //Delete Method
+
+        //Delete
+        public bool DeleteNote(int noteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Notes
+                    .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+
+                ctx.Notes.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
