@@ -19,10 +19,10 @@ namespace ElevenMovie.Service
         }
 
         // This will create a instance of Note
-        public bool CreateNote(MovieCreate model)
+        public bool CreateMovie(MovieCreate model)
         {
             var entity =
-                new Movie()
+                new Data.Movie()
                 {
                     OwnerId = _userId,
                     Title = model.Title,
@@ -89,7 +89,7 @@ namespace ElevenMovie.Service
         //Put or Update
 
         //Update Method
-        public bool UpdateNote(MovieEdit model)
+        public bool UpdateMovie(MovieEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -112,16 +112,16 @@ namespace ElevenMovie.Service
         //Delete Method
 
         //Delete
-        public bool DeleteNote(int noteId)
+        public bool DeleteMovie(int movieId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Notes
-                    .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+                    .Movies
+                    .Single(e => e.MovieId == movieId && e.OwnerId == _userId);
 
-                ctx.Notes.Remove(entity);
+                ctx.Movies.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

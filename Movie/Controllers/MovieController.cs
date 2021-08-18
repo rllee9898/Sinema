@@ -1,6 +1,7 @@
 ﻿using ElevenMovie.Models;
 using ElevenMovie.Service;
 using Microsoft.AspNet.Identity;
+using Movie.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,8 +71,7 @@ namespace ElevenMovie.Controllers
                     Title = detail.Title,
                     Description = detail.Description,
                     Genre = detail.Genre,
-                    IsFamilyFriendly = detail.IsFamilyFriendly,
-                    CreatedUtc = detail.CreatedUtc
+                    
                 };
             return View(model);
         }
