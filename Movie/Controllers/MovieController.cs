@@ -17,5 +17,26 @@ namespace Movie.Controllers
             var model = new MovieListItem[0];
             return View(model);
         }
+
+
+        //Add method here VVVV
+        //GET
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //Add method here VVVV
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(MovieCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
+
     }
 }

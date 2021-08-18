@@ -11,7 +11,7 @@ namespace Movie.Models
     {
         public int MovieId { get; set; }
         public string Title { get; set; }
-
+        public string Genre { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
     }

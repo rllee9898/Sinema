@@ -6,31 +6,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Data
+namespace Movie.Models
 {
-    public enum MaturityRating
+    public class MovieCreate
     {
-        G = 1,
-        PG,
-        PG_13,
-        R,
-        NC_17,
-        TV_G,
-        TV_MA
-    }
-    public class Content
-    {
-        public int Id { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
+        public enum MaturityRating
+        {
+            G = 1,
+            PG,
+            PG_13,
+            R,
+            NC_17,
+            TV_G,
+            TV_MA
+        }
 
         [Required]
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
+        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
 
-        [Required]
+        [MaxLength(8000)]
         public string Description { get; set; }
 
-        [Required]
         public bool IsFamilyFriendly
         {
             get
@@ -55,36 +53,8 @@ namespace Movie.Data
         [Required]
         public string Genre { get; set; }
         //Put Foriegn key here in base class
-        
+
         [DefaultValue(false)]
         public bool IsStarred { get; set; }
-
-        [Required]
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
-
-        [Display(Name = "Modified")]
-        public DateTimeOffset ModifiedUtc { get; set; }
-
-        public Content() { }
-        public Content(string title, string description, MaturityRating typeOfMaturityRating, string genre, bool isStarred, DateTimeOffset createdUtc, DateTimeOffset modifiedUtc)
-        {
-            Title = title;
-            Description = description;
-            TypeOfMaturityRating = typeOfMaturityRating;
-            Genre = genre;
-            IsStarred = isStarred;
-            CreatedUtc = createdUtc;
-            ModifiedUtc = modifiedUtc;
-        }
-
-
-
-
-
-
-
-
-
     }
 }
