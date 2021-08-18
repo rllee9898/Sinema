@@ -33,6 +33,10 @@ namespace Movie.Data
         }
 
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Content> Contents { get; set; }
+
+        public DbSet<Show> Shows { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -42,25 +46,24 @@ namespace Movie.Data
 
             modelBuilder
                 .Configurations
-                .Add(new IdentityUserLoginConfiguration())
-                .Add(new IdentityUserRoleConfiguration());
+                .Add(new IdentifyUserLoginConfiguration())
+                .Add(new IdentifyUserRoleConfiguration());
         }
     }
 
-    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    public class IdentifyUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
-        public IdentityUserLoginConfiguration()
+        public IdentifyUserLoginConfiguration()
         {
             HasKey(iul => iul.UserId);
         }
     }
 
-    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    public class IdentifyUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
     {
-        public IdentityUserRoleConfiguration()
+        public IdentifyUserRoleConfiguration()
         {
             HasKey(iur => iur.UserId);
         }
     }
-
 }
