@@ -1,5 +1,6 @@
 ﻿using ElevenMovie.Data;
 using ElevenMovie.Models;
+using Movie.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,13 +57,35 @@ namespace ElevenMovie.Service
                                     MovieId = e.MovieId,
                                     Title = e.Title,
                                     Genre = e.Genre,
-                                    IsStarred = e.IsStarred,
+                                    IsFamilyFriendly = e.IsFamilyFriendly,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
                 return query.ToArray();
             }
         }
+        public MovieDetail GetMovieById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var enity =
+                    ctx
+                        .Movies
+                        .Single(e => e.MovieId == id && e.OwnerId == _userId);
+                return
+                    new MovieDetail
+                    {
+                        MovieId = enity.MovieId,
+                        Title = enity.Title,
+                        Genre = enity.Genre,
+                        CreatedUtc = enity.CreatedUtc,
+                        ModifiedUtc = enity.ModifiedUtc
+                    };
+            }
+        }
+
+
+
 
     }
 }
