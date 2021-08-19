@@ -13,10 +13,11 @@ namespace ElevenMovie.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string Genre { get; set; }
-
-        public bool IsFamilyFriendly { get; set; }
+        //public bool IsFamilyFriendly { get; set; }
+        public bool IsStarred { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+
     }
 }

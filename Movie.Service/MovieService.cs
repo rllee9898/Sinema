@@ -58,7 +58,7 @@ namespace ElevenMovie.Service
                                     Title = e.Title,
                                     Description = e.Description,
                                     Genre = e.Genre,
-                                    IsFamilyFriendly = e.IsFamilyFriendly,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );

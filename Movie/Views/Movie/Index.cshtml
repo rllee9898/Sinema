@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add a Movie", "Create")
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))
@@ -23,10 +23,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MovieId)
+            @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsStarred)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
@@ -38,18 +44,24 @@
     {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.MovieId)
+        @Html.DisplayFor(modelItem => item.Title)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Title)
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Genre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsStarred)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.CreatedUtc)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.MovieId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
+        @Html.ActionLink("Change", "Edit", new { id = item.MovieId }) |
+        @Html.ActionLink("Moree Info", "Details", new { id = item.MovieId }) |
+        @Html.ActionLink("Remove", "Delete", new { id = item.MovieId })
     </td>
 </tr>
     }
