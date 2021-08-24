@@ -9,9 +9,6 @@ namespace ElevenMovie.Data
 {
     public class List
     {
-        [Required]
-        [Display(Name = "Owner Id")]
-        public Guid OwnerId { get; set; }
 
         [Required]
         [Display(Name = "Name")]

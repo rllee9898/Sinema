@@ -9,15 +9,27 @@ namespace ElevenMovie.Data
 {
     public class Review
     {
-        public int Id { get; set; }
+        [Required]
+        [Display(Name = "Owner Id")]
+        public Guid OwnerId { get; set; }
 
-        [Display(Name = "Author")]
-        public string Author { get; set; }
+        [Display(Name = "Review Id")]
+        public int ReviewId { get; set; }
+
+
+        [Display(Name = "Authors Name")]
+        public string Reviewer { get; set; }
+
 
         [Display(Name = "Content")]
         public string Content { get; set; }
 
+
         [Display(Name = "Created")]
-        public string CreatedAt { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        
+        [Display(Name = "Modified")]
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }

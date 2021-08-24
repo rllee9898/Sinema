@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ElevenMovie.Models.ShowListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeasonCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EpisodeCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AirDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeasonCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EpisodeCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AirDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUtc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
