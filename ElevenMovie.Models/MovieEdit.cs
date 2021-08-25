@@ -58,8 +58,7 @@ namespace ElevenMovie.Models
 
         [Required]
         [Display(Name = "Genre")]
-        public string Genre { get; set; }
-        //Put Foriegn key here in base class
+        public int AssignedGenre { get; set; }
 
         [DefaultValue(false)]
         [Display(Name = "Is Starred")]

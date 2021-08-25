@@ -25,6 +25,8 @@ namespace ElevenMovie.Service
                 {
                     OwnerId = _userId,
                     Reviewer = model.Reviewer,
+                    Title = model.Title,
+                    Rating = model.Rating,
                     Content = model.Content,
                     CreatedUtc = DateTimeOffset.Now,
                 };
@@ -53,7 +55,10 @@ namespace ElevenMovie.Service
                                 {
                                     ReviewId = e.ReviewId,
                                     Reviewer = e.Reviewer,
+                                    Title = e.Title,
+                                    Rating = e.Rating,
                                     Content = e.Content,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -73,6 +78,8 @@ namespace ElevenMovie.Service
                     {
                         ReviewId = enity.ReviewId,
                         Reviewer = enity.Reviewer,
+                        Title = enity.Title,
+                        Rating = enity.Rating,
                         Content = enity.Content,
                         CreatedUtc = enity.CreatedUtc
                     };
@@ -91,8 +98,13 @@ namespace ElevenMovie.Service
                         .Reviews
                         .Single(e => e.ReviewId == model.ReviewId && e.OwnerId == _userId);
 
+                entity.Reviewer = model.Reviewer;
+                entity.Title = model.Title;
+                entity.Rating = model.Rating;
                 entity.Content = model.Content;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.IsStarred = model.IsStarred;
+
 
 
                 return ctx.SaveChanges() == 1;

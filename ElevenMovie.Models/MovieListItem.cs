@@ -18,9 +18,10 @@ namespace ElevenMovie.Models
         public string Description { get; set; }
 
         [Display(Name = "Genre")]
-        public string Genre { get; set; }
+        public int AssignedGenre { get; set; }
 
-        [Display(Name = "Is Starred")]
+        [UIHint("Starred")]
+        [Display(Name = "Favorite")]
         public bool IsStarred { get; set; }
 
         [Display(Name = "Created")]

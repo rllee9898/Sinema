@@ -32,35 +32,34 @@ namespace ElevenMovie.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        [Display(Name = "Is Family Friendly")]
-        public bool IsFamilyFriendly
-        {
-            get
-            {
-                switch (TypeOfMaturityRating)
-                {
-                    case MaturityRating.G:
-                    case MaturityRating.PG:
-                    case MaturityRating.TV_G:
-                        return true;
-                    case MaturityRating.PG_13:
-                    case MaturityRating.R:
-                    case MaturityRating.NC_17:
-                    case MaturityRating.TV_MA:
-                    default:
-                        return false;
-                }
-            }
-        }
+        //[Display(Name = "Is Family Friendly")]
+        //public bool IsFamilyFriendly
+        //{
+        //    get
+        //    {
+        //        switch (TypeOfMaturityRating)
+        //        {
+        //            case MaturityRating.G:
+        //            case MaturityRating.PG:
+        //            case MaturityRating.TV_G:
+        //                return true;
+        //            case MaturityRating.PG_13:
+        //            case MaturityRating.R:
+        //            case MaturityRating.NC_17:
+        //            case MaturityRating.TV_MA:
+        //            default:
+        //                return false;
+        //        }
+        //    }
+        //}
         [Display(Name = "Type Of Maturity Rating")]
         public MaturityRating TypeOfMaturityRating { get; set; }
 
         [Required]
+  
         [Display(Name = "Genre")]
-        [ForeignKey(nameof(Genre))]
-        public string GenreType { get; set; }
-        public virtual Genre Genre { get; set; }
-        //Put Foriegn key here in base class
+        public int AssignedGenre { get; set; }
+
 
         [DefaultValue(false)]
         [Display(Name = "Is Starred")]

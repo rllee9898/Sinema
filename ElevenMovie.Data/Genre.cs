@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,11 +15,15 @@ namespace ElevenMovie.Data
         [Display(Name = "Owner Id")]
         public Guid OwnerId { get; set; }
 
+        [Key]
         [Display(Name = "Genre Id")]
         public int GenreId { get; set; }
 
-        [Key]
-        [Display(Name = "Genre Type")]
+        
+        [Display(Name = "Genre")]
         public string GenreType { get; set; }
+
+        [DefaultValue(false)]
+        public bool IsStarred { get; set; }
     }
 }

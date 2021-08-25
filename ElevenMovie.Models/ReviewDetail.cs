@@ -15,8 +15,17 @@ namespace ElevenMovie.Models
         [Display(Name = "Reviewer")]
         public string Reviewer { get; set; }
 
+        [Display(Name = "Title")]
+        public string Title { get; set; }
+
+        [Display(Name = "Rating")]
+        public int Rating { get; set; }
+
         [Display(Name = "Content")]
         public string Content { get; set; }
+
+        [Display(Name = "Favoorite")]
+        public bool IsStarred { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -17,12 +18,24 @@ namespace ElevenMovie.Data
         public int ReviewId { get; set; }
 
 
-        [Display(Name = "Authors Name")]
+        [Display(Name = "Reviewer")]
         public string Reviewer { get; set; }
+
+
+        [Display(Name = "Title")]
+        public string Title { get; set; }
+
+
+        [Display(Name = "Rating")]
+        public int Rating { get; set; }
 
 
         [Display(Name = "Content")]
         public string Content { get; set; }
+
+
+        [DefaultValue(false)]
+        public bool IsStarred { get; set; }
 
 
         [Display(Name = "Created")]

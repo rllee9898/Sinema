@@ -30,7 +30,7 @@ namespace ElevenMovie.Models
         public string Description { get; set; }
 
         [Display(Name = "Genre")]
-        public string Genre { get; set; }
+        public int AssignedGenre { get; set; }
 
         [Display(Name = "Family Friendly")]
         public bool IsFamilyFriendly
@@ -61,6 +61,8 @@ namespace ElevenMovie.Models
 
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        [Display(Name = "Favorite")]
         public bool IsStarred { get; set; }
     }
 }

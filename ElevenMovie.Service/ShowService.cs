@@ -26,7 +26,7 @@ namespace ElevenMovie.Service
                     OwnerId = _userId,
                     Title = model.Title,
                     Description = model.Description,
-                    Genre = model.Genre,
+                    AssignedGenre = model.AssignedGenre,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -55,7 +55,8 @@ namespace ElevenMovie.Service
                                     ShowId = e.ShowId,
                                     Title = e.Title,
                                     Description = e.Description,
-                                    Genre = e.Genre,
+                                    AssignedGenre = e.AssignedGenre,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -76,7 +77,7 @@ namespace ElevenMovie.Service
                         ShowId = enity.ShowId,
                         Title = enity.Title,
                         Description = enity.Description,
-                        Genre = enity.Genre,
+                        AssignedGenre = enity.AssignedGenre,
                         CreatedUtc = enity.CreatedUtc,
                         ModifiedUtc = enity.ModifiedUtc
                     };
@@ -97,8 +98,9 @@ namespace ElevenMovie.Service
 
                 entity.Title = model.Title;
                 entity.Description = model.Description;
-                entity.Genre = model.Genre;
+                entity.AssignedGenre = model.AssignedGenre;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.IsStarred = model.IsStarred;
 
 
                 return ctx.SaveChanges() == 1;

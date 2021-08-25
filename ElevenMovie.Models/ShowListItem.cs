@@ -20,15 +20,18 @@ namespace ElevenMovie.Models
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
 
-        [Display(Name = "Season Count")]
-        public int SeasonCount { get; set; }
-
-        [ForeignKey(nameof(Genre))]
-        public string GenreType { get; set; }
-        public virtual Genre Genre { get; set; }
-
         [Display(Name = "Description")]
         public string Description { get; set; }
+
+        [Display(Name = "Genre")]
+        public int AssignedGenre { get; set; }
+
+        [UIHint("Starred")]
+        [Display(Name = "Favorite")]
+        public bool IsStarred { get; set; }
+
+        [Display(Name = "Season Count")]
+        public int SeasonCount { get; set; }
 
         [Display(Name = "Episode Count")]
         public int EpisodeCount { get; set; }

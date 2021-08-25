@@ -69,7 +69,7 @@ namespace ElevenMovie.Controllers
                     MovieId = detail.MovieId,
                     Title = detail.Title,
                     Description = detail.Description,
-                    Genre = detail.Genre,
+                    AssignedGenre = detail.AssignedGenre,
                     
                 };
             return View(model);

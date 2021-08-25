@@ -23,9 +23,10 @@ namespace ElevenMovie.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        [ForeignKey(nameof(Genre))]
-        public string GenreType { get; set; }
-        public virtual Genre Genre { get; set; }
+        [Display(Name ="Favorite")]
+        public bool IsStarred { get; set; }
+
+        public int AssignedGenre { get; set; }
 
         [Display(Name = "Season Count")]
         public int SeasonCount { get; set; }

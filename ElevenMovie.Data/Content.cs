@@ -55,7 +55,7 @@ namespace ElevenMovie.Data
 
         [Required]
         [ForeignKey(nameof(Genre))]
-        public string GenreType { get; set; }
+        public int AssignedGenre { get; set; }
         public virtual Genre Genre { get; set; }
 
         [DefaultValue(false)]

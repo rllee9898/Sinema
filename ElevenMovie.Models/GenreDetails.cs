@@ -15,5 +15,8 @@ namespace ElevenMovie.Models
         [Key]
         [Display(Name = "Genre Type")]
         public string GenreType { get; set; }
+      
+        [Display(Name = "Favorite")]
+        public bool IsStarred { get; set; }
     }
 }

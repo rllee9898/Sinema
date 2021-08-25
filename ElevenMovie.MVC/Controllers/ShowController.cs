@@ -68,10 +68,8 @@ namespace ElevenMovie.MVC.Controllers
                 {
                     ShowId = detail.ShowId,
                     Title = detail.Title,
-                    GenreType = detail.GenreType,
+                    AssignedGenre = detail.AssignedGenre,
                     Description = detail.Description,
-                    Genre = detail.Genre,
-
                 };
             return View(model);
         }

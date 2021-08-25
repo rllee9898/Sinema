@@ -26,7 +26,7 @@ namespace ElevenMovie.Service
                     OwnerId = _userId,
                     Title = model.Title,
                     Description = model.Description,
-                    Genre = model.Genre,
+                    AssignedGenre = model.AssignedGenre,
                     IsStarred = model.IsStarred,
                     CreatedUtc = DateTimeOffset.Now
                 };
@@ -56,7 +56,7 @@ namespace ElevenMovie.Service
                                     MovieId = e.MovieId,
                                     Title = e.Title,
                                     Description = e.Description,
-                                    Genre = e.GenreType,
+                                    AssignedGenre = e.AssignedGenre,
                                     IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -71,14 +71,14 @@ namespace ElevenMovie.Service
                 var enity =
                     ctx
                         .Movies
-                        .Single(e => e.MovieId == id && e.OwnerId == _userId);
+                        .FirstOrDefault (e => e.MovieId == id && e.OwnerId == _userId);
                 return
                     new MovieDetail
                     {
                         MovieId = enity.MovieId,
                         Title = enity.Title,
                         Description = enity.Description,
-                        Genre = enity.GenreType,
+                        AssignedGenre = enity.AssignedGenre,
                         CreatedUtc = enity.CreatedUtc,
                         ModifiedUtc = enity.ModifiedUtc
                     };
@@ -95,12 +95,14 @@ namespace ElevenMovie.Service
                 var entity =
                     ctx
                         .Movies
-                        .Single(e => e.MovieId == model.MovieId && e.OwnerId == _userId);
+                        .FirstOrDefault (e => e.MovieId == model.MovieId && e.OwnerId == _userId);
 
                 entity.Title = model.Title;
                 entity.Description = model.Description;
-                entity.GenreType = model.Genre;
+                entity.AssignedGenre = model.AssignedGenre;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.IsStarred = model.IsStarred;
+
 
 
                 return ctx.SaveChanges() == 1;
@@ -118,7 +120,7 @@ namespace ElevenMovie.Service
                 var entity =
                     ctx
                     .Movies
-                    .Single(e => e.MovieId == movieId && e.OwnerId == _userId);
+                    .FirstOrDefault(e => e.MovieId == movieId && e.OwnerId == _userId);
 
                 ctx.Movies.Remove(entity);
 

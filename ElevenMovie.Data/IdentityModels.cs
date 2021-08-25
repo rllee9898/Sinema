@@ -37,7 +37,7 @@ namespace ElevenMovie.Data
         public DbSet<Show> Shows { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Genre> Genres { get; set; }
-        public DbSet<List> Lists { get; set; }
+        //public DbSet<List> Lists { get; set; }
 
 
 

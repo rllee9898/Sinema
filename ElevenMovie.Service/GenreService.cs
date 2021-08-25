@@ -48,7 +48,8 @@ namespace ElevenMovie.Service
                                 new GenreListItem
                                 {
                                     GenreId = e.GenreId,
-                                    GenreType = e.GenreType
+                                    GenreType = e.GenreType,
+                                    IsStarred = e.IsStarred
                                 }
                         );
                 return query.ToArray();
@@ -83,8 +84,9 @@ namespace ElevenMovie.Service
                         .Genres
                         .Single(e => e.GenreId == model.GenreId && e.OwnerId == _userId);
 
-                entity.GenreId = model.GenreId;
                 entity.GenreType = model.GenreType;
+                entity.IsStarred = model.IsStarred;
+
 
                 return ctx.SaveChanges() == 1;
             }
