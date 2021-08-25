@@ -93,7 +93,7 @@ namespace ElevenMovie.Service
                 //Delete Method
 
                 //Delete
-                public bool DeleteMovie(int movieId)
+                public bool DeleteGenre(int movieId)
         {
             using (var ctx = new ApplicationDbContext())
             {

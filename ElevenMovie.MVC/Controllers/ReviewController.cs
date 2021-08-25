@@ -66,11 +66,8 @@ namespace ElevenMovie.MVC.Controllers
             var model =
                 new ReviewEdit
                 {
-                    AuthorId = detail.AuthorId,
-                    Author = detail.Author,
-                    Content = detail.Content,
-                    Created = detail.Created,
-
+                    Reviewer = detail.Reviewer,
+                    Content = detail.Content
                 };
             return View(model);
         }
@@ -81,7 +78,7 @@ namespace ElevenMovie.MVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.ShowId != id)
+            if (model.ReviewId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);

@@ -68,17 +68,17 @@ namespace ElevenMovie.Data
         [Display(Name = "Modified")]
         public DateTimeOffset ModifiedUtc { get; set; }
 
-        public Content() { }
-        public Content(string title, string description, MaturityRating typeOfMaturityRating, string genre, bool isStarred, DateTimeOffset createdUtc, DateTimeOffset modifiedUtc)
-        {
-            Title = title;
-            Description = description;
-            TypeOfMaturityRating = typeOfMaturityRating;
-            Genre = genre;
-            IsStarred = isStarred;
-            CreatedUtc = createdUtc;
-            ModifiedUtc = modifiedUtc;
-        }
+        //public Content() { }
+        //public Content(string title, string description, MaturityRating typeOfMaturityRating, string genre, bool isStarred, DateTimeOffset createdUtc, DateTimeOffset modifiedUtc)
+        //{
+        //    Title = title;
+        //    Description = description;
+        //    TypeOfMaturityRating = typeOfMaturityRating;
+        //    Genre = genre;
+        //    IsStarred = isStarred;
+        //    CreatedUtc = createdUtc;
+        //    ModifiedUtc = modifiedUtc;
+        //}
 
 
 

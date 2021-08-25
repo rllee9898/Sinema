@@ -56,7 +56,7 @@ namespace ElevenMovie.Service
                                     MovieId = e.MovieId,
                                     Title = e.Title,
                                     Description = e.Description,
-                                    Genre = e.Genre,
+                                    Genre = e.GenreType,
                                     IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -78,7 +78,7 @@ namespace ElevenMovie.Service
                         MovieId = enity.MovieId,
                         Title = enity.Title,
                         Description = enity.Description,
-                        Genre = enity.Genre,
+                        Genre = enity.GenreType,
                         CreatedUtc = enity.CreatedUtc,
                         ModifiedUtc = enity.ModifiedUtc
                     };
@@ -99,7 +99,7 @@ namespace ElevenMovie.Service
 
                 entity.Title = model.Title;
                 entity.Description = model.Description;
-                entity.Genre = model.Genre;
+                entity.GenreType = model.Genre;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
 

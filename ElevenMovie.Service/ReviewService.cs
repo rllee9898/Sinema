@@ -24,7 +24,6 @@ namespace ElevenMovie.Service
                 new Data.Review()
                 {
                     OwnerId = _userId,
-                    ReviewId = model.ReviewId,
                     Reviewer = model.Reviewer,
                     Content = model.Content,
                     CreatedUtc = DateTimeOffset.Now,
