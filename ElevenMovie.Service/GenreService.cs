@@ -48,17 +48,13 @@ namespace ElevenMovie.Service
                                 new GenreListItem
                                 {
                                     GenreId = e.GenreId,
-                                    Title = e.Title,
-                                    Description = e.Description,
-                                    Genre = e.Genre,
-                                    IsStarred = e.IsStarred,
-                                    CreatedUtc = e.CreatedUtc
+                                    GenreType = e.GenreType
                                 }
                         );
                 return query.ToArray();
             }
         }
-        public GenreDetail GetGenreById(int id)
+        public GenreDetails GetGenreById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -67,14 +63,10 @@ namespace ElevenMovie.Service
                         .Genres
                         .Single(e => e.GenreId == id && e.OwnerId == _userId);
                 return
-                    new GenreDetail
+                    new GenreDetails
                     {
                         GenreId = enity.GenreId,
-                        Title = enity.Title,
-                        Description = enity.Description,
-                        Genre = enity.Genre,
-                        CreatedUtc = enity.CreatedUtc,
-                        ModifiedUtc = enity.ModifiedUtc
+                        GenreType = enity.GenreType
                     };
             }
         }
@@ -91,21 +83,17 @@ namespace ElevenMovie.Service
                         .Genres
                         .Single(e => e.GenreId == model.GenreId && e.OwnerId == _userId);
 
-                entity.Title = model.Title;
-                entity.Description = model.Description;
-                entity.Genre = model.Genre;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
-
+                entity.GenreId = model.GenreId;
+                entity.GenreType = model.GenreType;
 
                 return ctx.SaveChanges() == 1;
-
             }
         }
 
-        //Delete Method
+                //Delete Method
 
-        //Delete
-        public bool DeleteMovie(int movieId)
+                //Delete
+                public bool DeleteMovie(int movieId)
         {
             using (var ctx = new ApplicationDbContext())
             {

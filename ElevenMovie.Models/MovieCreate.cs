@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ElevenMovie.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,7 +57,9 @@ namespace ElevenMovie.Models
 
         [Required]
         [Display(Name = "Genre")]
-        public string Genre { get; set; }
+        [ForeignKey(nameof(Genre))]
+        public string GenreType { get; set; }
+        public virtual Genre Genre { get; set; }
         //Put Foriegn key here in base class
 
         [DefaultValue(false)]

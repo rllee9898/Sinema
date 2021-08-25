@@ -249,6 +249,10 @@
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Show\Create.cshtml" />
     <Content Include="Views\Review\Create.cshtml" />
+    <Content Include="Views\Genre\Create.cshtml" />
+    <Content Include="Views\Show\Details.cshtml" />
+    <Content Include="Views\Review\Details.cshtml" />
+    <Content Include="Views\Genre\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -279,6 +283,9 @@
       <Project>{735e3963-1ddf-4189-8863-7a154f31655a}</Project>
       <Name>ElevenMovie.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

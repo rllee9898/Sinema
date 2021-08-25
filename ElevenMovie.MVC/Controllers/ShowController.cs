@@ -1,5 +1,6 @@
 ﻿using ElevenMovie.Models;
 using ElevenMovie.Service;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,8 +66,9 @@ namespace ElevenMovie.MVC.Controllers
             var model =
                 new ShowEdit
                 {
-                    ShowId = detail.MovieId,
+                    ShowId = detail.ShowId,
                     Title = detail.Title,
+                    GenreType = detail.GenreType,
                     Description = detail.Description,
                     Genre = detail.Genre,
 

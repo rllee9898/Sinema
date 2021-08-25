@@ -1,4 +1,5 @@
 ﻿using ElevenMovie.Data;
+using ElevenMovie.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,6 @@ namespace ElevenMovie.Service
                     Title = model.Title,
                     Description = model.Description,
                     Genre = model.Genre,
-                    IsStarred = model.IsStarred,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -56,7 +56,6 @@ namespace ElevenMovie.Service
                                     Title = e.Title,
                                     Description = e.Description,
                                     Genre = e.Genre,
-                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace ElevenMovie.Models
 {
-    public class ShowCreate
+    public class ShowDetail
     {
-        [Required]
+        [Display(Name = "Show Id")]
+        public int ShowId { get; set; }
+
         [Display(Name = "Title")]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
 
         [ForeignKey(nameof(Genre))]
@@ -36,5 +36,10 @@ namespace ElevenMovie.Models
         [Display(Name = "Air Date")]
         public DateTime AirDate { get; set; }
 
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }

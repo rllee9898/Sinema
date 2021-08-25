@@ -9,8 +9,6 @@ namespace ElevenMovie.Models
 {
     public class ReviewCreate
     {
-        [Display(Name = "Reviewer Id")]
-        public int ReviewId { get; set; }
 
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
@@ -20,8 +18,5 @@ namespace ElevenMovie.Models
 
         [Display(Name = "Content")]
         public string Content { get; set; }
-
-        //[Display(Name = "Created")]
-        //public DateTimeOffset CreatedUtc { get; set; }
     }
 }

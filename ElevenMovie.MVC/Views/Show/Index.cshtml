@@ -10,7 +10,16 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        @ViewBag.SaveResult
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
 
 <table class="table">
     <tr>
@@ -32,29 +41,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeasonCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EpisodeCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AirDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeasonCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EpisodeCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ShowId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ShowId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ShowId })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ElevenMovie.Models
 {
-    public class ReviewListItem
+    public class ReviewDetail
     {
         [Display(Name = "Reviewer Id")]
         public int ReviewId { get; set; }
@@ -20,5 +20,8 @@ namespace ElevenMovie.Models
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }

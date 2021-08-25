@@ -1,4 +1,5 @@
 ﻿using ElevenMovie.Data;
+using ElevenMovie.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,7 +75,7 @@ namespace ElevenMovie.Service
                         ReviewId = enity.ReviewId,
                         Reviewer = enity.Reviewer,
                         Content = enity.Content,
-                        CreatedUtc = enity.CreatedUtc,
+                        CreatedUtc = enity.CreatedUtc
                     };
             }
         }
