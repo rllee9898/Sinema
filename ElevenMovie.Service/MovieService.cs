@@ -17,11 +17,11 @@ namespace ElevenMovie.Service
             _userId = userId;
         }
 
-        // This will create a instance of Note
+        // This will create a instance of Movie
         public bool CreateMovie(MovieCreate model)
         {
             var entity =
-                new Data.Movie()
+                new Movie()
                 {
                     OwnerId = _userId,
                     Title = model.Title,
@@ -56,6 +56,7 @@ namespace ElevenMovie.Service
                                     Title = e.Title,
                                     Description = e.Description,
                                     AssignedGenre = e.AssignedGenre,
+                                    GenreType = e.Genre.GenreType,
                                     IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -70,7 +71,7 @@ namespace ElevenMovie.Service
                 var enity =
                     ctx
                         .Movies
-                        .FirstOrDefault (e => e.MovieId == id && e.OwnerId == _userId);
+                        .FirstOrDefault(e => e.MovieId == id && e.OwnerId == _userId);
                 return
                     new MovieDetail
                     {
@@ -94,7 +95,7 @@ namespace ElevenMovie.Service
                 var entity =
                     ctx
                         .Movies
-                        .FirstOrDefault (e => e.MovieId == model.MovieId && e.OwnerId == _userId);
+                        .FirstOrDefault(e => e.MovieId == model.MovieId && e.OwnerId == _userId);
 
                 entity.Title = model.Title;
                 entity.Description = model.Description;
@@ -114,17 +115,18 @@ namespace ElevenMovie.Service
         //Delete
         public bool DeleteMovie(int movieId)
         {
-            using (var ctx = new ApplicationDbContext())
-            {
+            var ctx = new ApplicationDbContext();
+
+
                 var entity =
                     ctx
                     .Movies
                     .FirstOrDefault(e => e.MovieId == movieId && e.OwnerId == _userId);
 
-                ctx.Movies.Remove(entity);
+            ctx.Movies.Remove(entity);
 
-                return ctx.SaveChanges() == 1;
-            }
+            return ctx.SaveChanges() == 1;
+
         }
     }
 }

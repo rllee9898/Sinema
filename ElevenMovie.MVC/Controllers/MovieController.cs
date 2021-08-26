@@ -62,7 +62,9 @@ namespace ElevenMovie.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateMovieService();
+            var genreService = CreateGenreService();
             var detail = service.GetMovieById(id);
+            ViewBag.GenreId = genreService.GenreList();
             var model =
                 new MovieEdit
                 {
@@ -125,6 +127,13 @@ namespace ElevenMovie.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new MovieService(userId);
+            return service;
+        }
+
+        private GenreService CreateGenreService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new GenreService(userId);
             return service;
         }
     }

@@ -66,7 +66,10 @@ namespace ElevenMovie.MVC.Controllers
             var model =
                 new ReviewEdit
                 {
+                    ReviewId = detail.ReviewId,
                     Reviewer = detail.Reviewer,
+                    Title = detail.Title,
+                    Rating = detail.Rating,
                     Content = detail.Content
                 };
             return View(model);

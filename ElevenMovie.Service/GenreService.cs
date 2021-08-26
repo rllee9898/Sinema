@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace ElevenMovie.Service
 {
-    public class  GenreService
+    public class GenreService
     {
         private readonly Guid _userId;
 
@@ -22,7 +23,7 @@ namespace ElevenMovie.Service
                 new Data.Genre()
                 {
                     OwnerId = _userId,
-                    GenreType = model.GenreType 
+                    GenreType = model.GenreType
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -34,7 +35,7 @@ namespace ElevenMovie.Service
 
         //Get
 
-        //This method will allow us to see all the notes that belong to a specific user.
+        //This method will allow us to see all the genres that belong to a specific user.
         public IEnumerable<GenreListItem> GetGenres()
         {
             using (var ctx = new ApplicationDbContext())
@@ -92,22 +93,31 @@ namespace ElevenMovie.Service
             }
         }
 
-                //Delete Method
+        //Delete Method
 
-                //Delete
-                public bool DeleteGenre(int movieId)
+        //Delete
+        public bool DeleteGenre(int genreId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Movies
-                    .Single(e => e.MovieId == movieId && e.OwnerId == _userId);
+                    .Genres
+                    .Single(e => e.GenreId == genreId && e.OwnerId == _userId);
 
-                ctx.Movies.Remove(entity);
+                ctx.Genres.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public SelectList GenreList()
+        {
+            var ctx = new ApplicationDbContext();
+            
+                return new SelectList(ctx.Genres.Where(e => e.OwnerId == _userId), "GenreId", "GenreType");
+            
+        }
+
     }
 }

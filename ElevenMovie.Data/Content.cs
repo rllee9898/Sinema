@@ -68,6 +68,8 @@ namespace ElevenMovie.Data
         [Display(Name = "Modified")]
         public DateTimeOffset ModifiedUtc { get; set; }
 
+
+
         //public Content() { }
         //public Content(string title, string description, MaturityRating typeOfMaturityRating, string genre, bool isStarred, DateTimeOffset createdUtc, DateTimeOffset modifiedUtc)
         //{
@@ -79,6 +81,12 @@ namespace ElevenMovie.Data
         //    CreatedUtc = createdUtc;
         //    ModifiedUtc = modifiedUtc;
         //}
+        public class MyListModel
+        {
+            public string SelectedItemId { get; set; }
+            public IEnumerable<Genre> Items { get; set; }
+        }
+
 
 
 

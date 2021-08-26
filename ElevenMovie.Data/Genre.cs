@@ -19,9 +19,10 @@ namespace ElevenMovie.Data
         [Display(Name = "Genre Id")]
         public int GenreId { get; set; }
 
-        
+
         [Display(Name = "Genre")]
         public string GenreType { get; set; }
+
 
         [DefaultValue(false)]
         public bool IsStarred { get; set; }

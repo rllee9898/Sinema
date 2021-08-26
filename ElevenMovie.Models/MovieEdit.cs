@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ElevenMovie.Data;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -63,5 +65,7 @@ namespace ElevenMovie.Models
         [DefaultValue(false)]
         [Display(Name = "Is Starred")]
         public bool IsStarred { get; set; }
+
+        public int MyGenreId { get;}
     }
 }

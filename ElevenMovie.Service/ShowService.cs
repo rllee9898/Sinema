@@ -118,7 +118,6 @@ namespace ElevenMovie.Service
                 entity.AirDate = model.AirDate;
                 entity.AssignedGenre = model.AssignedGenre;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
-                entity.IsStarred = model.IsStarred;
 
 
                 return ctx.SaveChanges() == 1;

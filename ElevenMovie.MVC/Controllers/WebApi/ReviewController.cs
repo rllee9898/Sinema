@@ -36,7 +36,6 @@ namespace ElevenMovie.MVC.Controllers.WebApi
                 };
             // Return a value indicating whether the update succeeded
             return service.UpdateReview(updatedReview);
-
         }
 
         [Route("{id}/Star")]

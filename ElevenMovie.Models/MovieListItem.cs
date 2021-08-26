@@ -26,6 +26,7 @@ namespace ElevenMovie.Models
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        public string GenreType { get; set; }
 
     }
 }
