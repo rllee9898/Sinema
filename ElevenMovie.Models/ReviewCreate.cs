@@ -22,7 +22,7 @@ namespace ElevenMovie.Models
         [Display(Name = "Rating")]
         public int Rating { get; set; }
 
-        [Display(Name = "Content")]
+        [Display(Name = "Review")]
         public string Content { get; set; }
     }
 }

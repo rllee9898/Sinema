@@ -22,6 +22,7 @@ namespace ElevenMovie.Data
         public double AverageRunTime { get; set; }
 
         [Display(Name = "Air Date")]
-        public DateTime AirDate { get; set; }
+        public int AirDate { get; set; }
+
     }
 }

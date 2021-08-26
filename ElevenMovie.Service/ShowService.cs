@@ -26,6 +26,10 @@ namespace ElevenMovie.Service
                     OwnerId = _userId,
                     Title = model.Title,
                     Description = model.Description,
+                    SeasonCount = model.SeasonCount,
+                    EpisodeCount = model.EpisodeCount,
+                    AverageRunTime = model.AverageRunTime,
+                    AirDate = model.AirDate,
                     AssignedGenre = model.AssignedGenre,
                     CreatedUtc = DateTimeOffset.Now
                 };
@@ -55,8 +59,12 @@ namespace ElevenMovie.Service
                                     ShowId = e.ShowId,
                                     Title = e.Title,
                                     Description = e.Description,
-                                    AssignedGenre = e.AssignedGenre,
                                     IsStarred = e.IsStarred,
+                                    SeasonCount = e.SeasonCount,
+                                    EpisodeCount = e.EpisodeCount,
+                                    AverageRunTime = e.AverageRunTime,
+                                    AirDate = e.AirDate,
+                                    AssignedGenre = e.AssignedGenre,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -77,6 +85,11 @@ namespace ElevenMovie.Service
                         ShowId = enity.ShowId,
                         Title = enity.Title,
                         Description = enity.Description,
+                        IsStarred = enity.IsStarred,
+                        SeasonCount = enity.SeasonCount,
+                        EpisodeCount = enity.EpisodeCount,
+                        AverageRunTime = enity.AverageRunTime,
+                        AirDate = enity.AirDate,
                         AssignedGenre = enity.AssignedGenre,
                         CreatedUtc = enity.CreatedUtc,
                         ModifiedUtc = enity.ModifiedUtc
@@ -98,6 +111,11 @@ namespace ElevenMovie.Service
 
                 entity.Title = model.Title;
                 entity.Description = model.Description;
+                entity.IsStarred = model.IsStarred;
+                entity.SeasonCount = model.SeasonCount;
+                entity.EpisodeCount = model.EpisodeCount;
+                entity.AverageRunTime = model.AverageRunTime;
+                entity.AirDate = model.AirDate;
                 entity.AssignedGenre = model.AssignedGenre;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 entity.IsStarred = model.IsStarred;

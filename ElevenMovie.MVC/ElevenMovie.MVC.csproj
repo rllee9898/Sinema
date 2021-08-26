@@ -274,6 +274,7 @@
     <Content Include="Views\Review\Delete.cshtml" />
     <Content Include="Views\Genre\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Starred.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

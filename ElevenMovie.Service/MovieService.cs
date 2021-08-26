@@ -27,7 +27,6 @@ namespace ElevenMovie.Service
                     Title = model.Title,
                     Description = model.Description,
                     AssignedGenre = model.AssignedGenre,
-                    IsStarred = model.IsStarred,
                     CreatedUtc = DateTimeOffset.Now
                 };
 

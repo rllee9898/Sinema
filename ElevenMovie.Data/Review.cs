@@ -25,12 +25,12 @@ namespace ElevenMovie.Data
         [Display(Name = "Title")]
         public string Title { get; set; }
 
-
+        
         [Display(Name = "Rating")]
         public int Rating { get; set; }
 
 
-        [Display(Name = "Content")]
+        [Display(Name = "Review")]
         public string Content { get; set; }
 
 

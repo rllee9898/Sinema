@@ -23,10 +23,9 @@ namespace ElevenMovie.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        [Display(Name ="Favorite")]
+        
+        [Display(Name = "Favorite")]
         public bool IsStarred { get; set; }
-
-        public int AssignedGenre { get; set; }
 
         [Display(Name = "Season Count")]
         public int SeasonCount { get; set; }
@@ -38,6 +37,8 @@ namespace ElevenMovie.Models
         public double AverageRunTime { get; set; }
 
         [Display(Name = "Air Date")]
-        public DateTime AirDate { get; set; }
+        public int AirDate { get; set; }
+        
+        public int AssignedGenre { get; set; }
     }
 }

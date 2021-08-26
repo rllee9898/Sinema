@@ -30,7 +30,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AssignedGenre)
+            @Html.DisplayNameFor(model => model.IsStarred)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SeasonCount)
@@ -39,10 +39,13 @@
             @Html.DisplayNameFor(model => model.EpisodeCount)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.AverageRunTime)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.AirDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsStarred)
+            @Html.DisplayNameFor(model => model.AssignedGenre)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
@@ -61,7 +64,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AssignedGenre)
+                @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.ShowId })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SeasonCount)
@@ -70,18 +73,21 @@
                 @Html.DisplayFor(modelItem => item.EpisodeCount)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.AverageRunTime)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.AirDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.ShowId })
+                @Html.DisplayFor(modelItem => item.AssignedGenre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ShowId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ShowId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ShowId })
+                @Html.ActionLink("Update", "Edit", new { id = item.ShowId }) |
+                @Html.ActionLink("More Info", "Details", new { id = item.ShowId }) |
+                @Html.ActionLink("Remove", "Delete", new { id = item.ShowId })
             </td>
         </tr>
     }

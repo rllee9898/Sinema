@@ -52,17 +52,10 @@ namespace ElevenMovie.Models
         //        }
         //    }
         //}
-        [Display(Name = "Type Of Maturity Rating")]
-        public MaturityRating TypeOfMaturityRating { get; set; }
+        //[Display(Name = "Type Of Maturity Rating")]
+        //public MaturityRating TypeOfMaturityRating { get; set; }
 
-        [Required]
-  
         [Display(Name = "Genre")]
         public int AssignedGenre { get; set; }
-
-
-        [DefaultValue(false)]
-        [Display(Name = "Is Starred")]
-        public bool IsStarred { get; set; }
     }
 }
