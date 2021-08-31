@@ -74,6 +74,7 @@
     <Compile Include="MovieDetail.cs" />
     <Compile Include="MovieEdit.cs" />
     <Compile Include="MovieListItem.cs" />
+    <Compile Include="MovieSearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewCreate.cs" />
     <Compile Include="ReviewDetail.cs" />

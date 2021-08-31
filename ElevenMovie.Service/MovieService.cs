@@ -85,6 +85,24 @@ namespace ElevenMovie.Service
             }
         }
 
+        //public MovieSearchResults.Result GetMovieBytitle(string title)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var enity =
+        //            ctx
+        //                .Movies
+        //                .FirstOrDefault(e => e.OwnerId == _userId);
+        //        return
+        //            new MovieSearchResults.Result
+        //            {
+        //                Title = enity.Title 
+        //            };
+        //    }
+        //}
+
+
+
         //Put or Update
 
         //Update Method

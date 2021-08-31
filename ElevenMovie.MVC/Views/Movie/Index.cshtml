@@ -6,9 +6,13 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Add Movie", "Create")
-</p>
+<p> @Html.ActionLink("Add Movie", "Create")</p> 
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search Movie">
+        <button class="btn btn-outline-success my-2 my-sm-0" background="" type="submit">Search</button>
+    </form>
+</nav>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -65,7 +69,7 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
             </td>
         </tr>
-    }
+     }
 
 </table>
 

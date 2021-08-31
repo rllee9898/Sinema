@@ -18,6 +18,22 @@ namespace ElevenMovie
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //            routes.MapRoute(
+            //           name: "TmdbApi",
+            //           url: "TmdbApi/{id}/",
+            //           defaults: new { controller = "TmdbApi", action = "GetMovie", id = "" },
+            //           constraints: new { id = @"^[0-9]+$" }
+            //);
+
+            //            routes.MapRoute(
+            //                name: "TmdbApiPaging",
+            //                url: "TmdbApi/{title}/{page}",
+            //                defaults: new { controller = "TmdbApi", action = "Index", title = "", page = "" },
+            //                constraints: new { title = @"^[a-zA-Z]+$", page = @"^[0-9]+$" }
+            //            );
+            //        }
         }
+
     }
 }

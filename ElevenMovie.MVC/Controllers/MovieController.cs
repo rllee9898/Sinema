@@ -1,9 +1,13 @@
 ﻿using ElevenMovie.Models;
 using ElevenMovie.Service;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,14 +24,22 @@ namespace ElevenMovie.Controllers
             var service = new MovieService(userId);
             var model = service.GetMovies();
 
+            //try movie api
+           // TryMovieAPI();
+
             return View(model);
         }
 
+       
 
         // Add method here VVVV
         //GET
         public ActionResult Create()
         {
+            var genreService = CreateGenreService();
+            var GetGenres = genreService.GetGenres();
+            ViewBag.Genres = GetGenres.ToList();
+
             return View();
         }
 
@@ -39,6 +51,7 @@ namespace ElevenMovie.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateMovieService();
+
 
             if (service.CreateMovie(model))
             {
@@ -59,12 +72,22 @@ namespace ElevenMovie.Controllers
             return View(model);
         }
 
+        //public ActionResult MovieSearchResults(string title)
+        //{
+        //    var svc = CreateMovieService();
+        //    var model = svc.GetMovieBytitle(title);
+
+        //    return View(model);
+        //}
+
         public ActionResult Edit(int id)
         {
             var service = CreateMovieService();
             var genreService = CreateGenreService();
+            var GetGenres = genreService.GetGenres();
+            ViewBag.Genres = GetGenres.ToList();
             var detail = service.GetMovieById(id);
-            ViewBag.GenreId = genreService.GenreList();
+            
             var model =
                 new MovieEdit
                 {

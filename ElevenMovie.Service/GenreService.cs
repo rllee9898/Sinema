@@ -16,11 +16,11 @@ namespace ElevenMovie.Service
         public GenreService(Guid userId)
         {
             _userId = userId;
-        }// This will create a instance of Note
+        }// This will create a Genre
         public bool CreateGenre(GenreCreate model)
         {
             var entity =
-                new Data.Genre()
+                new Genre()
                 {
                     OwnerId = _userId,
                     GenreType = model.GenreType
@@ -56,14 +56,36 @@ namespace ElevenMovie.Service
                 return query.ToArray();
             }
         }
-        public GenreDetails GetGenreById(int id)
+
+        ////This method will allow us to see all the genres 
+        //public IEnumerable<GenreListItem> Get()
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //                .Genres
+        //                .Select(
+        //                    e =>
+        //                        new GenreListItem
+        //                        {
+        //                            GenreId = e.GenreId,
+        //                            GenreType = e.GenreType,
+        //                            IsStarred = e.IsStarred
+        //                        }
+        //                );
+        //        return query.ToArray();
+        //    }
+        //}
+
+            public GenreDetails GetGenreById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var enity =
                     ctx
                         .Genres
-                        .Single(e => e.GenreId == id && e.OwnerId == _userId);
+                        .FirstOrDefault(e => e.GenreId == id && e.OwnerId == _userId);
                 return
                     new GenreDetails
                     {

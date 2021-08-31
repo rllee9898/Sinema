@@ -12,5 +12,6 @@ namespace ElevenMovie.Data
         [Key]
         [Display(Name = "Movie Id")]
         public int MovieId { get; set; }
+
     }
 }
