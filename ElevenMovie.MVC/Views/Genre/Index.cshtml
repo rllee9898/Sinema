@@ -6,11 +6,18 @@
 <body style="background-color:lightgrey">
 
 
-    <h2>Index</h2>
+    <h2>Genre</h2>
 
     <p>
         @Html.ActionLink("Add Genre", "Create")
     </p>
+
+    <nav class="navbar navbar-light bg-light" ,>
+        <form class="form-inline" style="float: right;">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Genre.." aria-label="Search Movie">
+            <button class="btn btn-outline-success my-2 my-sm-0" background="" type="submit">Search </button>
+        </form>
+    </nav>
 
     @if (TempData.ContainsKey("SaveResult"))
     {
