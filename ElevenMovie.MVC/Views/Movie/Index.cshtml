@@ -3,99 +3,105 @@
 @{
     ViewBag.Title = "Index";
 }
+<body style="background-color:lightgrey">
 
-<h2>Index</h2>
 
-<p> @Html.ActionLink("Add Movie", "Create")</p> 
-<nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search Movie">
-        <button class="btn btn-outline-success my-2 my-sm-0" background="" type="submit">Search</button>
-    </form>
-</nav>
+    <div class="style="float: left><h2>Movie</h2></div>
 
-@if (TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        @ViewBag.SaveResult
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-        @TempData["SaveResult"]
-    </div>
-}
+    <p> @Html.ActionLink("Add Movie", "Create")</p>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssignedGenre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsStarred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th></th>
-    </tr>
+    <h2>Movies</h2>
 
-    @foreach (var item in Model)
+    <nav class="navbar navbar-light bg-light" ,>
+        <form class="form-inline" style="float: right;">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Title.." aria-label="Search Movie">
+            <button class="btn btn-outline-success my-2 my-sm-0" background="" type="submit">Search </button>
+        </form>
+    </nav>
+
+    @if (TempData.ContainsKey("SaveResult"))
     {
+        <div class="alert alert-success fade in" role="alert">
+            @ViewBag.SaveResult
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            @TempData["SaveResult"]
+        </div>
+    }
+
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GenreType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.MovieId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MovieId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedGenre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsStarred)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th></th>
         </tr>
-     }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenreType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.MovieId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MovieId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
+                </td>
+            </tr>
+        }
 
-@section scripts {
-    <script language="javascript" type="text/javascript">
-        $(document).ready(function () {
-            $("i[data-toggle='star']")
-                .css({ "cursor": "pointer" })
-                .click(function (e) {
-                    var target = $(e.target);
-                    var movieId = target.attr("data-id");
-                    var starSet = target.hasClass("glyphicon-star");
+    </table>
+</body>
 
-                    $.ajax({
-                        method: starSet ? "DELETE" : "PUT",
-                        url: "/api/movie/" + movieId + "/star",
-                        data: null
-                    })
-                        .done(function (r) {
-                            target.removeClass();
-                            target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+    @section scripts {
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $("i[data-toggle='star']")
+                    .css({ "cursor": "pointer" })
+                    .click(function (e) {
+                        var target = $(e.target);
+                        var movieId = target.attr("data-id");
+                        var starSet = target.hasClass("glyphicon-star");
+
+                        $.ajax({
+                            method: starSet ? "DELETE" : "PUT",
+                            url: "/api/movie/" + movieId + "/star",
+                            data: null
                         })
-                        .fail(function (r) {
-                            alert("Failed to change star status");
-                        });
-                });
-        });
-    </script>
-}
+                            .done(function (r) {
+                                target.removeClass();
+                                target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                            })
+                            .fail(function (r) {
+                                alert("Failed to change star status");
+                            });
+                    });
+            });
+        </script>
+    }

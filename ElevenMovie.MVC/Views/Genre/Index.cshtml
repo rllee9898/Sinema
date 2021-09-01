@@ -3,76 +3,79 @@
 @{
     ViewBag.Title = "Index";
 }
+<body style="background-color:lightgrey">
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Add Genre", "Create")
-</p>
+    <h2>Index</h2>
 
-@if (TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        @ViewBag.SaveResult
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-        @TempData["SaveResult"]
-    </div>
-}
+    <p>
+        @Html.ActionLink("Add Genre", "Create")
+    </p>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GenreType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsStarred)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
+    @if (TempData.ContainsKey("SaveResult"))
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.GenreType)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.GenreId })
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.GenreId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.GenreId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.GenreId })
-    </td>
-</tr>
+        <div class="alert alert-success fade in" role="alert">
+            @ViewBag.SaveResult
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            @TempData["SaveResult"]
+        </div>
     }
 
-</table>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GenreType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsStarred)
+            </th>
+        </tr>
 
-@section scripts {
-    <script language="javascript" type="text/javascript">
-        $(document).ready(function () {
-            $("i[data-toggle='star']")
-                .css({ "cursor": "pointer" })
-                .click(function (e) {
-                    var target = $(e.target);
-                    var genreId = target.attr("data-id");
-                    var starSet = target.hasClass("glyphicon-star");
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenreType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.GenreId })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.GenreId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GenreId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GenreId })
+                </td>
+            </tr>
+        }
 
-                    $.ajax({
-                        method: starSet ? "DELETE" : "PUT",
-                        url: "/api/genre/" + genreId + "/star",
-                        data: null
-                    })
-                        .done(function (r) {
-                            target.removeClass();
-                            target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+    </table>
+</body>
+
+    @section scripts {
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $("i[data-toggle='star']")
+                    .css({ "cursor": "pointer" })
+                    .click(function (e) {
+                        var target = $(e.target);
+                        var genreId = target.attr("data-id");
+                        var starSet = target.hasClass("glyphicon-star");
+
+                        $.ajax({
+                            method: starSet ? "DELETE" : "PUT",
+                            url: "/api/genre/" + genreId + "/star",
+                            data: null
                         })
-                        .fail(function (r) {
-                            alert("Failed to change star status");
-                        });
-                });
-        });
-    </script>
-}
+                            .done(function (r) {
+                                target.removeClass();
+                                target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                            })
+                            .fail(function (r) {
+                                alert("Failed to change star status");
+                            });
+                    });
+            });
+        </script>
+    }
