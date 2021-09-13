@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 
 namespace ElevenMovie.Data
 {
-    public enum MaturityRating
-    {
-        G = 1,
-        PG,
-        PG_13,
-        R,
-        NC_17,
-        TV_G,
-        TV_MA
-    }
+    //public enum MaturityRating
+    //{
+    //    G = 1,
+    //    PG,
+    //    PG_13,
+    //    R,
+    //    NC_17,
+    //    TV_G,
+    //    TV_MA
+    //}
+
     public class Content
     {
         public int Id { get; set; }
@@ -31,27 +32,27 @@ namespace ElevenMovie.Data
         [Required]
         public string Description { get; set; }
 
-        [Required]
-        public bool IsFamilyFriendly
-        {
-            get
-            {
-                switch (TypeOfMaturityRating)
-                {
-                    case MaturityRating.G:
-                    case MaturityRating.PG:
-                    case MaturityRating.TV_G:
-                        return true;
-                    case MaturityRating.PG_13:
-                    case MaturityRating.R:
-                    case MaturityRating.NC_17:
-                    case MaturityRating.TV_MA:
-                    default:
-                        return false;
-                }
-            }
-        }
-        public MaturityRating TypeOfMaturityRating { get; set; }
+        //[Required]
+        //public bool IsFamilyFriendly
+        //{
+        //    get
+        //    {
+        //        switch (TypeOfMaturityRating)
+        //        {
+        //            case MaturityRating.G:
+        //            case MaturityRating.PG:
+        //            case MaturityRating.TV_G:
+        //                return true;
+        //            case MaturityRating.PG_13:
+        //            case MaturityRating.R:
+        //            case MaturityRating.NC_17:
+        //            case MaturityRating.TV_MA:
+        //            default:
+        //                return false;
+        //        }
+        //    }
+        //}
+        //public MaturityRating TypeOfMaturityRating { get; set; }
 
         [Required]
         [ForeignKey(nameof(Genre))]
